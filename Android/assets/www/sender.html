@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyCElCY_JoLVbKhCEX4nxex5BKlhC3loQ0A",
+		authDomain: "gps-tracker-db573.firebaseapp.com",
+		databaseURL: "https://gps-tracker-db573.firebaseio.com",
+		projectId: "gps-tracker-db573",
+		storageBucket: "gps-tracker-db573.appspot.com",
+		messagingSenderId: "968016926595"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+    <script>
+	  var database = firebase.database();
+	  var user = database.ref("users/bus1/location");
+	  var Location=window.location.hash.substring(1);
+	  
+	  function send(){
+		Location=window.location.hash.substring(1);
+		user.set(Location);
+	  }
+	  send();
+	  window.onhashchange=send;
+    </script>
+  </body>
+</html>
